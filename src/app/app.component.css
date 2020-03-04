@@ -1,0 +1,18 @@
+a {
+    font-size: 80%;
+    font-weight: 400;
+}
+
+.nav-link {
+    color: #6c757d;
+    font-weight: bold;
+}
+
+.nav-link.active {
+    background-color: #343a40; 
+    color: white;
+}
+
+table {
+    font-size: .9rem;
+}
