@@ -7,7 +7,7 @@ export class CapitalizeFirstPipe implements PipeTransform {
 
     transform(value: string): string {
         if (typeof value !== 'string') {
-            return '';
+            return null;
         }
         return value.charAt(0).toUpperCase() + value.toLowerCase().slice(1);
     }

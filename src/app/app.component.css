@@ -4,13 +4,30 @@ a {
 }
 
 .nav-link {
+    background-color: #e6e6e6;
     color: #6c757d;
     font-weight: bold;
 }
 
+.nav-link:hover {
+    background-color: #d4d3d3;
+}
+
 .nav-link.active {
-    background-color: #343a40; 
+    background-color: #343a40;
     color: white;
+}
+
+.nav-link.active:hover {
+    background-color: #4b4f53;
+}
+
+.nav-link:first-child {
+    margin-right: .5rem;
+}
+
+.nav-link:last-child {
+    margin-left: .5rem;
 }
 
 table {

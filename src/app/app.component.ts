@@ -27,8 +27,15 @@ export class AppComponent implements OnInit {
     };
     valorPromesa: Promise<string>;
     fecha = new Date();
-
+    rut = '16108387-k';
+    rut_dots = '16.108.387-k';
     keyvalue_template = '<p *ngFor="let fruta of frutas | keyvalue">{{ fruta.key }}. {{ fruta.value }}></p>';
+    ext_url = 'https://cdn.freebiesupply.com/logos/thumbs/2x/angular-3-logo.png';
+    ext_resource_url = 'https://www.youtube.com/embed/iHTNDkkYiXE';
+    // tslint:disable-next-line: max-line-length
+    html_template = '<button class="btn btn-dark btn-sm" onClick="alert(`Ni los estilos ni el script que genera esta alerta funcionarían sin el pipe indicado.`)">Click me</button>';
+    style = 'background-color: orange;';
+    script = `https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js`;
 
     constructor() { }
 
@@ -43,6 +50,11 @@ export class AppComponent implements OnInit {
                 resolve('Data recibida');
             }, 3000);
         });
+
+    }
+
+    showAlert() {
+        console.log('HOLA MUNDO');
 
     }
 

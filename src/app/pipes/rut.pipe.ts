@@ -5,42 +5,47 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class RutPipe implements PipeTransform {
 
-    transform(value: string, args?: string): string {
+    transform(value: string, format?: string): string {
 
         const current = value.replace(/^0+/, '');
+        let dotless = false;
 
-        if (current !== '' && current.length > 1) {
+        if (format !== undefined && typeof format === 'string' && format === 'dotless') {
+            dotless = true;
+        }
 
-            const withoutDots = current.replace(/\./g, '');
-            const onlyNumbers = withoutDots.replace(/-/g, '');
-            const start = onlyNumbers.substring(0, onlyNumbers.length - 1);
-            let withDots = '';
+        if (typeof current === 'string' && current !== '' && current.length > 1) {
+
+            const clearDots = current.replace(/\./g, '');
+            const clearDash = clearDots.replace(/-/g, '');
+            const raw = clearDash.substring(0, clearDash.length - 1);
+            let body = '';
             let full = '';
             let i = 0;
             let j = 1;
 
-            for (i = start.length - 1; i >= 0; i--) {
+            for (i = raw.length - 1; i >= 0; i--) {
 
-                const letter = start.charAt(i);
-                withDots = letter + withDots;
+                const chart = raw.charAt(i);
+                body = chart + body;
 
-                if (j % 3 === 0 && j <= start.length - 1) {
-                    withDots = '.' + withDots;
+                if (dotless === false && j % 3 === 0 && j <= raw.length - 1) {
+                    body = '.' + body;
                 }
 
                 j++;
 
             }
-            console.log(withoutDots);
 
-            const dv = onlyNumbers.substring(onlyNumbers.length - 1);
-            full = withDots + '-' + dv;
+            const dv = clearDash.substring(clearDash.length - 1);
+            full = body + '-' + dv;
 
             return full;
 
         }
 
-        return value;
+        return null;
+
     }
 
 }

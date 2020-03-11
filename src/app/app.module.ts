@@ -4,18 +4,20 @@ import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 
 import { AppComponent } from './app.component';
-import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { RutPipe } from './pipes/rut.pipe';
 import { CapitalizeFirstPipe } from './pipes/capitalize-first.pipe';
+import { SafeDomPipe } from './pipes/safe-dom.pipe';
+import { ReplaceCharPipe } from './pipes/replace-char.pipe';
 
 registerLocaleData(localeEs, 'es');
 
 @NgModule({
     declarations: [
         AppComponent,
-        SafeHtmlPipe,
         RutPipe,
-        CapitalizeFirstPipe
+        CapitalizeFirstPipe,
+        SafeDomPipe,
+        ReplaceCharPipe
     ],
     imports: [
         BrowserModule
